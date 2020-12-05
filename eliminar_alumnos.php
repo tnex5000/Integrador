@@ -7,13 +7,14 @@ $datos=array();
 
 $ID_al=$_GET['ID'];
 $ID_pa=$_GET['ID_pa'];
+$ejecutar;
+do{
+    $query_modificar_alumno="DELETE  FROM alumnos WHERE ID_alumno='".$ID_al."'";
+    $ejecutar= mysqli_query($connect, $query_modificar_alumno);
+    $result=mysqli_fetch_assoc($ejecutar);
+    
 
-$query_modificar_alumno="DELETE  FROM alumnos WHERE ID_alumno='".$ID_al."'";
-
-
-$ejecutar= mysqli_query($connect, $query_modificar_alumno);
-$result=mysqli_fetch_assoc($ejecutar);
-
+}while(!$ejecutar);
 if($ejecutar){
     $query_modificar_padres="DELETE FROM padres WHERE ID_papas='".$ID_pa."'";
     $ejecutar1= mysqli_query($connect, $query_modificar_padres);
